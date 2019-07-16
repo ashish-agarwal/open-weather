@@ -2,6 +2,7 @@
 
 var app = require('express').Router();
 
-// app.post('/login', userController.authenticate);
+var weatherController = require('./../controllers/weather.controller');
 
+app.get('/city', weatherController.getByCity);
 module.exports = app;

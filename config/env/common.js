@@ -6,6 +6,6 @@ var rootPath = path.normalize(__dirname + '/../..');
 module.exports = {
     root: rootPath,
     port: process.env.PORT || 3000,
-
-    openWeatherKey: "2319134397aa3bceef336c985f4a29e2",
+    dataRefreshTimeInSec: 30,
+    openWeatherBaseUrl: "http://api.openweathermap.org/data/2.5/"
 }

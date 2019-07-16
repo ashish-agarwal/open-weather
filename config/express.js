@@ -32,10 +32,7 @@ module.exports = function (app) {
     app.use(helmet());
     // Prettify HTML
     app.locals.pretty = true;
-    // Only use logger for development environment
-    if (process.env.NODE_ENV === "development") {
-        app.use(logger("dev"));
-    }
+    app.use(logger("dev"));
 
     // Set views path, template engine and default layout
     app.set("views", config.root + "/app/views");
