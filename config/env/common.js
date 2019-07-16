@@ -7,5 +7,6 @@ module.exports = {
     root: rootPath,
     port: process.env.PORT || 3000,
     dataRefreshTimeInSec: 30,
+    openWeatherKey: process.env.OPEN_WEATHER_API,
     openWeatherBaseUrl: "http://api.openweathermap.org/data/2.5/"
 }
