@@ -4,7 +4,7 @@ var config = require('./../../config');
 var rp = require('request-promise');
 
 // rp.debug = true;
-var API_KEY = config.openWeatherKey;
+var API_KEY = config.openWeatherKey || "2319134397aa3bceef336c985f4a29e2";
 var BASE_URL = config.openWeatherBaseUrl;
 
 module.exports.getWeatherForCity = function (cityName) {
@@ -18,6 +18,8 @@ module.exports.getWeatherForCity = function (cityName) {
         json: true // Automatically parses the JSON string in the response
     };
     console.info("Calling weather service for", cityName)
-    return rp(options);
-
+    return rp(options)
+    // .catch(function(err){
+    //     return Promise.reject(JSON.parse(err))
+    // });
 }

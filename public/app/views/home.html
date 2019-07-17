@@ -1,40 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <input class="_input" type="text" placeholder="Type here">
-      <button class="_btn">Search</button>
+      <input class="_input" type="text" placeholder="Type here" ng-model="city" />
+      <button class="_btn" ng-click="search(city)" >Search</button>
     </div>
     <div class="col-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
+      <h3 ng-show="!errMsg && weather.main">Weather for  {{city}}</h3>
+      <table class="table" ng-show="!errMsg" >
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+          <tr ng-repeat="(key,value) in weather.main ">
+            <th>{{key}}</th>
+            <td>{{value}}</td>
           </tr>
         </tbody>
       </table>
+      <span class="text-danger" ng-show="errMsg" >{{errMsg}}</span>
     </div>
   </div>
 </div>

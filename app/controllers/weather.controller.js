@@ -27,6 +27,6 @@ module.exports.getByCity = function (req, res, next) {
             return redis.setAsync(city, JSON.stringify(result))
         }).catch(function (err) {
             console.log(err)
-            return res.status(400).send({ success: false, err: err.message });
+            return res.status(400).send({ success: false, message: err.message });
         })
 }
