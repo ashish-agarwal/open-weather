@@ -51,11 +51,14 @@ module.exports = function (app) {
             extended: false
         })
     );
-    app.use(express.static(path.join(__dirname, "public")));
+    console.log('path.join(__dirname, "./../public")',path.join(__dirname, "./../public"));
+
+    app.use('/',express.static(path.join(__dirname, "./../public")));
+    app.use('/',express.static(path.join(__dirname, "./../public/app")));
     // app.use(session(sessionOptions));
 
     // Load all the routes
-    app.use("/", require("../app/routes/app.routes"));
+    // app.use("/", require("../app/routes/app.routes"));
     app.use("/api/v1/", require("../app/routes/app.v1.routes"));
 
     console.log("%s App is running at http://localhost:%d in %s mode", chalk.green("✓"), process.env.PORT || 3000, process.env.NODE_ENV);
