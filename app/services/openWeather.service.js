@@ -4,7 +4,7 @@ var config = require('./../../config');
 var rp = require('request-promise');
 
 // rp.debug = true;
-var API_KEY = config.openWeatherKey || "2319134397aa3bceef336c985f4a29e2";
+var API_KEY = config.openWeatherKey;
 var BASE_URL = config.openWeatherBaseUrl;
 
 module.exports.getWeatherForCity = function (cityName) {
