@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <input class="_input" type="text" placeholder="Type here" ng-model="city" />
-      <button class="_btn" ng-click="search(city)" >Search</button>
-    </div>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="exampleInputName2">City</label>
+        <input type="text" class="form-control" id="exampleInputName2" ng-model="city" placeholder="sydney">
+      </div>
+      <button type="submit" ng-click="search(city)" class="btn btn-default">Search</button>
+    </form>
     <div class="col-12">
-      <h3 ng-show="!errMsg && weather.main">Weather for  {{city}}</h3>
-      <table class="table" ng-show="!errMsg" >
+      <h3 ng-show="!errMsg && weather.main">Weather for {{city}}</h3>
+      <table class="table" ng-show="!errMsg">
         <tbody>
           <tr ng-repeat="(key,value) in weather.main ">
             <th>{{key}}</th>
@@ -14,7 +17,7 @@
           </tr>
         </tbody>
       </table>
-      <span class="text-danger" ng-show="errMsg" >{{errMsg}}</span>
+      <span class="text-danger" ng-show="errMsg">{{errMsg}}</span>
     </div>
   </div>
 </div>
